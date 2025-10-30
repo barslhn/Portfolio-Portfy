@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Portfolio 
 
-## Getting Started
+This is my personal **developer portfolio website**, built using **Next.js**, **TypeScript**, and **Tailwind CSS**.  
+It showcases my background, technical skills, projects, and certificates — as well as automatic integration with my GitHub repositories.
 
-First, run the development server:
+🔹 **Features:**
+- Light/Dark theme switch 🌞🌙  
+- Turkish/English language toggle 🇹🇷🇬🇧  
+- Automatically updated GitHub projects (via API)  
+- Downloadable CVs in both languages (TR/EN)  
+- Fully responsive design for mobile and desktop  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📬 **Contact:**  
+- Email: [barslhn@gmail.com](mailto:barslhn@gmail.com)  
+- LinkedIn: [linkedin.com/in/baris-ilhan](https://www.linkedin.com/in/baris-ilhan)  
+- GitHub: [github.com/barslhn](https://github.com/barslhn)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 🌐 Portföy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Bu proje, kişisel **yazılımcı portföy sitemdir**.  
+**Next.js**, **TypeScript** ve **Tailwind CSS** kullanılarak geliştirildi.  
+Eğitim bilgilerimi, teknik yetkinliklerimi, projelerimi ve sertifikalarımı sergilerken aynı zamanda GitHub üzerindeki projelerimle otomatik senkronize olur.
 
-## Learn More
+🔹 **Özellikler:**
+- Açık / Koyu tema geçişi 🌞🌙  
+- Türkçe / İngilizce dil seçeneği 🇹🇷🇬🇧  
+- GitHub projeleri otomatik olarak güncellenir  
+- Türkçe ve İngilizce CV indirme özelliği  
+- Mobil ve masaüstü uyumlu (responsive) tasarım  
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📬 **İletişim:**  
+- E-posta: [barslhn@gmail.com](mailto:barslhn@gmail.com)  
+- LinkedIn: [linkedin.com/in/baris-ilhan](https://www.linkedin.com/in/baris-ilhan)  
+- GitHub: [github.com/barslhn](https://github.com/barslhn)
