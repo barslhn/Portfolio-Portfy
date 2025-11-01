@@ -43,7 +43,7 @@ const TEXTS = {
     project2_title: "Excel Dönüştürücü ve Alarm Raporlama",
     project2_desc: "Veri yükleme, filtreleme ve Excel çıktısı üreten araç.",
     github_latest: "GitHub’dan Son Projeler",
-    github_none: "Proje bulunamadı.",
+    github_none: "Şu anda gösterilecek GitHub projesi yok.",
     education_title: "Eğitim",
     experience_title: "Deneyim",
     certificates_title: "Sertifikalar",
@@ -60,6 +60,7 @@ const TEXTS = {
     cert7: "NDG Linux Unhatched – Cisco Networking Academy (2023)",
     exp1_title: "Stajyer – Transay Taşımacılık ve Personel Hizmetleri",
     exp1_date: "2025-08 – 2025-09",
+    exp1_desc: "Java, Python ve veri tabanı çalışmaları.",
     exp2_title: "Resepsiyon Görevlisi – Sultanahmet Center View",
     exp2_date: "2023-11 – 2025-01",
     exp3_title: "Organizatör – Kaçkar Turizm",
@@ -68,7 +69,7 @@ const TEXTS = {
     exp4_date: "2018-06 – 2019-10",
     footer: "© " + new Date().getFullYear() + " Barış İlhan",
   },
- en: {
+  en: {
     nav_about: "About",
     nav_skills: "Skills",
     nav_projects: "Projects",
@@ -90,7 +91,7 @@ const TEXTS = {
     about_title: "About",
     about_text:
       "I am a software developer with a degree in Computer Programming. I focus on developing backend applications using Java and Spring Boot while continuously improving my skills in database design and API integration. Through my education, internship, and personal projects, I have gained experience working both independently and as part of a team in various software development processes. I also have hands-on experience in Python-based data processing and deep learning projects. My goal is to develop scalable and sustainable software solutions that create real value.",
-      skills_title: "Skills",
+    skills_title: "Skills",
     skills_backend: "Backend",
     skills_python: "Python",
     skills_tools: "Tools",
@@ -104,6 +105,7 @@ const TEXTS = {
     project2_title: "Excel Converter & Alarm Reporting Tool",
     project2_desc: "Office tool for uploading data, filtering by time range and exporting Excel reports.",
     github_latest: "Latest projects from GitHub",
+    github_none: "No GitHub repositories found.",
     education_title: "Education",
     experience_title: "Experience",
     certificates_title: "Certificates",
@@ -120,6 +122,7 @@ const TEXTS = {
     cert7: "NDG Linux Unhatched – Cisco (2023)",
     exp1_title: "Intern – Transay Transport & Personnel Services",
     exp1_date: "2025-08 – 2025-09",
+    exp1_desc: "Worked on Java/Python tasks and basic database operations.",
     exp2_title: "Receptionist – Sultanahmet Center View",
     exp2_date: "2023-11 – 2025-01",
     exp3_title: "Organizer – Kaçkar Tourism",
@@ -333,13 +336,12 @@ export default function Home() {
             </p>
           </div>
           <a
-          href={lang === "tr" ? "/cv/baris-ilhan-cv-tr.pdf" : "/cv/baris-ilhan-cv-en.pdf"}
-           download
-           className="w-full text-center bg-sky-500 text-slate-950 py-2 rounded-md text-sm font-semibold"
+            href={lang === "tr" ? "/cv/baris-ilhan-cv-tr.pdf" : "/cv/baris-ilhan-cv-en.pdf"}
+            download
+            className="w-full text-center bg-sky-500 text-slate-950 py-2 rounded-md text-sm font-semibold"
           >
             {t.card_cv}
           </a>
-
         </div>
       </header>
 
@@ -433,7 +435,8 @@ export default function Home() {
               {t.project2_desc}
             </p>
             <p className="text-xs text-slate-500">
-            Python · {lang === "tr" ? "veri işleme" : "data processing"}</p>
+              Python · {lang === "tr" ? "veri işleme" : "data processing"}
+            </p>
           </div>
         </div>
 
