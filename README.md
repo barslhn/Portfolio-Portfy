@@ -10,10 +10,7 @@ It showcases my background, technical skills, projects, and certificates — as 
 - Downloadable CVs in both languages (TR/EN)  
 - Fully responsive design for mobile and desktop  
 
-📬 **Contact:**  
-- Email: [barslhn@gmail.com](mailto:barslhn@gmail.com)  
-- LinkedIn: [linkedin.com/in/baris-ilhan](https://www.linkedin.com/in/baris-ilhan)  
-- GitHub: [github.com/barslhn](https://github.com/barslhn)
+Web Site: https://portfolio-portfy-34ud.vercel.app/
 
 ---
 
@@ -30,7 +27,5 @@ Eğitim bilgilerimi, teknik yetkinliklerimi, projelerimi ve sertifikalarımı se
 - Türkçe ve İngilizce CV indirme özelliği  
 - Mobil ve masaüstü uyumlu (responsive) tasarım  
 
-📬 **İletişim:**  
-- E-posta: [barslhn@gmail.com](mailto:barslhn@gmail.com)  
-- LinkedIn: [linkedin.com/in/baris-ilhan](https://www.linkedin.com/in/baris-ilhan)  
-- GitHub: [github.com/barslhn](https://github.com/barslhn)
+Web Sitesi: https://portfolio-portfy-34ud.vercel.app/
+
