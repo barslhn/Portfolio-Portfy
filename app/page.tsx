@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 const GITHUB_USERNAME = "barslhn";
 
-//  Dil sözlüğü
 const TEXTS = {
   tr: {
     nav_about: "Hakkımda",
