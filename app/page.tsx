@@ -50,13 +50,18 @@ const TEXTS = {
     edu1_year: "2025",
     edu2: "Teknik Kimya Laboratuvarı – Kadırga MTAL",
     edu2_year: "2020",
-    cert1: "Java 101 – Turkcell Geleceği Yazanlar (2025)",
-    cert2: "CSS Eğitimi – BTK Akademi (2025)",
-    cert3: "Microsoft Excel Temel Eğitimi – BTK Akademi (2025)",
-    cert4: "Algoritma ve Veri Yapılarına Giriş – BTK Akademi (2024)",
-    cert5: "Bilgi Güvenliğine Giriş – Cisco Networking Academy (2024)",
-    cert6: "NDG Linux Essentials – Cisco Networking Academy (2023)",
-    cert7: "NDG Linux Unhatched – Cisco Networking Academy (2023)",
+    certificates: [
+      "Java 101 – Turkcell Geleceği Yazanlar (2025)",
+      "Java 201 – Turkcell Geleceği Yazanlar (2025)",
+      "Python Programlama 101 – Turkcell Geleceği Yazanlar (2025)",
+      "Python Programlama 201 – Turkcell Geleceği Yazanlar (2025)",
+      "CSS Eğitimi – BTK Akademi (2025)",
+      "Microsoft Excel Temel Eğitimi – BTK Akademi (2025)",
+      "Algoritma ve Veri Yapılarına Giriş – BTK Akademi (2024)",
+      "Bilgi Güvenliğine Giriş – Cisco Networking Academy (2024)",
+      "NDG Linux Essentials – Cisco Networking Academy (2023)",
+      "NDG Linux Unhatched – Cisco Networking Academy (2023)",
+    ],
     exp1_title: "Stajyer – Transay Taşımacılık ve Personel Hizmetleri",
     exp1_date: "2025-08 – 2025-09",
     exp1_desc: "Java, Python ve veri tabanı çalışmaları.",
@@ -112,13 +117,18 @@ const TEXTS = {
     edu1_year: "2025",
     edu2: "Technical Chemistry Laboratory – Kadırga Vocational and Technical Anatolian High School",
     edu2_year: "2020",
-    cert1: "Java 101 – Turkcell Geleceği Yazanlar (2025)",
-    cert2: "CSS Training – BTK Academy (2025)",
-    cert3: "Microsoft Excel Basics – BTK Academy (2025)",
-    cert4: "Algorithms & Data Structures – BTK Academy (2024)",
-    cert5: "Introduction to Cybersecurity – Cisco Networking Academy (2024)",
-    cert6: "NDG Linux Essentials – Cisco (2023)",
-    cert7: "NDG Linux Unhatched – Cisco (2023)",
+    certificates: [
+      "Java 101 – Turkcell Geleceği Yazanlar (2025)",
+      "Java 201 – Turkcell Geleceği Yazanlar (2025)",
+      "Python Programming 101 – Turkcell Geleceği Yazanlar (2025)",
+      "Python Programming 201 – Turkcell Geleceği Yazanlar (2025)",
+      "CSS Training – BTK Academy (2025)",
+      "Microsoft Excel Basics – BTK Academy (2025)",
+      "Algorithms & Data Structures – BTK Academy (2024)",
+      "Introduction to Cybersecurity – Cisco Networking Academy (2024)",
+      "NDG Linux Essentials – Cisco (2023)",
+      "NDG Linux Unhatched – Cisco (2023)",
+    ],
     exp1_title: "Intern – Transay Transport & Personnel Services",
     exp1_date: "2025-08 – 2025-09",
     exp1_desc: "Worked on Java/Python tasks and basic database operations.",
@@ -183,29 +193,29 @@ export default function Home() {
         }
       >
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-          {/* logo yok */}
           <div>
             <p className="font-semibold">Barış İlhan</p>
             <p className={isDark ? "text-xs text-slate-400" : "text-xs text-slate-500"}>{t.hero_role}</p>
           </div>
 
+          {/* mobil website de görünsün */}
           <div
             className={
               isDark
-                ? "hidden md:flex gap-5 text-sm text-slate-200"
-                : "hidden md:flex gap-5 text-sm text-slate-700"
+                ? "flex gap-5 text-sm text-slate-200 overflow-x-auto md:overflow-visible"
+                : "flex gap-5 text-sm text-slate-700 overflow-x-auto md:overflow-visible"
             }
           >
-            <a href="#about" className="hover:text-sky-400">
+            <a href="#about" className="hover:text-sky-400 whitespace-nowrap">
               {t.nav_about}
             </a>
-            <a href="#skills" className="hover:text-sky-400">
+            <a href="#skills" className="hover:text-sky-400 whitespace-nowrap">
               {t.nav_skills}
             </a>
-            <a href="#projects" className="hover:text-sky-400">
+            <a href="#projects" className="hover:text-sky-400 whitespace-nowrap">
               {t.nav_projects}
             </a>
-            <a href="#education" className="hover:text-sky-400">
+            <a href="#education" className="hover:text-sky-400 whitespace-nowrap">
               {t.nav_education}
             </a>
           </div>
@@ -490,13 +500,9 @@ export default function Home() {
           </ul>
           <h3 className="text-xl font-semibold mt-6 mb-3">{t.certificates_title}</h3>
           <ul className={isDark ? "space-y-2 text-slate-300 text-sm" : "space-y-2 text-slate-700 text-sm"}>
-            <li>{t.cert1}</li>
-            <li>{t.cert2}</li>
-            <li>{t.cert3}</li>
-            <li>{t.cert4}</li>
-            <li>{t.cert5}</li>
-            <li>{t.cert6}</li>
-            <li>{t.cert7}</li>
+            {t.certificates.map((cert: string, idx: number) => (
+              <li key={idx}>{cert}</li>
+            ))}
           </ul>
         </div>
         <div>
@@ -504,20 +510,21 @@ export default function Home() {
           <ul className={isDark ? "space-y-4 text-slate-200" : "space-y-4 text-slate-700"}>
             <li>
               <p className="font-semibold">{t.exp1_title}</p>
-              <p className="text-sm text-slate-500">{t.exp1_date}</p>
+              {/* telefon araması gibi tıklanmasın */}
+              <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp1_date}</p>
               <p className="text-sm">{t.exp1_desc}</p>
             </li>
             <li>
               <p className="font-semibold">{t.exp2_title}</p>
-              <p className="text-sm text-slate-500">{t.exp2_date}</p>
+              <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp2_date}</p>
             </li>
             <li>
               <p className="font-semibold">{t.exp3_title}</p>
-              <p className="text-sm text-slate-500">{t.exp3_date}</p>
+              <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp3_date}</p>
             </li>
             <li>
               <p className="font-semibold">{t.exp4_title}</p>
-              <p className="text-sm text-slate-500">{t.exp4_date}</p>
+              <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp4_date}</p>
             </li>
           </ul>
         </div>
