@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/baris.jpg", // public/baris.jpg'ü kullanıyoruz
+        url: "/baris.jpg",
         width: 800,
         height: 800,
         alt: "Barış İlhan",
@@ -62,6 +62,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
+      <head>
+        {/* iPhone, Android ve tüm mobil tarayıcılarda telefon numarası algılamayı devre dışı bırak */}
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+        {/* Tarayıcıların otomatik bağlantı veya stil eklemesini engelle */}
+        <meta name="x-apple-disable-message-reformatting" content="true" />
+        {/* Mobil uyumluluk */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        {/* Android Chrome özel: otomatik bağlantı renkleri kapalı */}
+        <meta name="theme-color" content="#0f172a" />
+        {/* Ek güvenlik / erişim ayarları */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      </head>
       <body>{children}</body>
     </html>
   );

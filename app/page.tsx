@@ -63,14 +63,14 @@ const TEXTS = {
       "NDG Linux Unhatched – Cisco Networking Academy (2023)",
     ],
     exp1_title: "Stajyer – Transay Taşımacılık ve Personel Hizmetleri",
-    exp1_date: "2025-08 – 2025-09",
+    exp1_date: "Ağustos 2025 – Eylül 2025",
     exp1_desc: "Java, Python ve veri tabanı çalışmaları.",
     exp2_title: "Resepsiyon Görevlisi – Sultanahmet Center View",
-    exp2_date: "2023-11 – 2025-01",
+    exp2_date: "Kasım 2023 – Ocak 2025",
     exp3_title: "Organizatör – Kaçkar Turizm",
-    exp3_date: "2022-11 – 2023-10",
+    exp3_date: "Kasım 2022 – Ekim 2023",
     exp4_title: "Laboratuvar Teknisyeni – Funda Laboratuvarı",
-    exp4_date: "2018-06 – 2019-10",
+    exp4_date: "Haziran 2018 – Ekim 2019",
     footer: "© " + new Date().getFullYear() + " Barış İlhan",
   },
   en: {
@@ -130,14 +130,14 @@ const TEXTS = {
       "NDG Linux Unhatched – Cisco (2023)",
     ],
     exp1_title: "Intern – Transay Transport & Personnel Services",
-    exp1_date: "2025-08 – 2025-09",
+    exp1_date: "August 2025 – September 2025",
     exp1_desc: "Worked on Java/Python tasks and basic database operations.",
     exp2_title: "Receptionist – Sultanahmet Center View",
-    exp2_date: "2023-11 – 2025-01",
+    exp2_date: "November 2023 – January 2025",
     exp3_title: "Organizer – Kaçkar Tourism",
-    exp3_date: "2022-11 – 2023-10",
+    exp3_date: "November 2022 – October 2023",
     exp4_title: "Lab Technician – Funda Laboratory",
-    exp4_date: "2018-06 – 2019-10",
+    exp4_date: "June 2018 – October 2019",
     footer: "© " + new Date().getFullYear() + " Barış Ilhan",
   },
 };
@@ -192,35 +192,62 @@ export default function Home() {
             : "sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200"
         }
       >
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-          <div>
-            <p className="font-semibold">Barış İlhan</p>
-            <p className={isDark ? "text-xs text-slate-400" : "text-xs text-slate-500"}>{t.hero_role}</p>
+        <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          {/* üst satır: isim + mobil butonlar */}
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="font-semibold">Barış İlhan</p>
+              <p className={isDark ? "text-xs text-slate-400" : "text-xs text-slate-500"}>{t.hero_role}</p>
+            </div>
+            {/* mobil butonlar */}
+            <div className="flex items-center gap-2 md:hidden">
+              <button
+                onClick={toggleLang}
+                className={
+                  isDark
+                    ? "px-3 py-1 text-xs border border-slate-600 rounded-md"
+                    : "px-3 py-1 text-xs border border-slate-300 rounded-md"
+                }
+              >
+                {lang === "tr" ? "EN" : "TR"}
+              </button>
+              <button
+                onClick={toggleTheme}
+                className={
+                  isDark
+                    ? "h-9 w-9 rounded-full border border-slate-600 flex items-center justify-center"
+                    : "h-9 w-9 rounded-full border border-slate-300 flex items-center justify-center"
+                }
+              >
+                {isDark ? "☀️" : "🌙"}
+              </button>
+            </div>
           </div>
 
-          {/* mobil website de görünsün */}
+          {/* menü - mobilde de tam genişlik */}
           <div
             className={
               isDark
-                ? "flex gap-5 text-sm text-slate-200 overflow-x-auto md:overflow-visible"
-                : "flex gap-5 text-sm text-slate-700 overflow-x-auto md:overflow-visible"
+                ? "flex flex-wrap gap-3 text-sm text-slate-200"
+                : "flex flex-wrap gap-3 text-sm text-slate-700"
             }
           >
-            <a href="#about" className="hover:text-sky-400 whitespace-nowrap">
+            <a href="#about" className="hover:text-sky-400">
               {t.nav_about}
             </a>
-            <a href="#skills" className="hover:text-sky-400 whitespace-nowrap">
+            <a href="#skills" className="hover:text-sky-400">
               {t.nav_skills}
             </a>
-            <a href="#projects" className="hover:text-sky-400 whitespace-nowrap">
+            <a href="#projects" className="hover:text-sky-400">
               {t.nav_projects}
             </a>
-            <a href="#education" className="hover:text-sky-400 whitespace-nowrap">
+            <a href="#education" className="hover:text-sky-400">
               {t.nav_education}
             </a>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* masaüstü butonları */}
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={toggleLang}
               className={
@@ -355,7 +382,7 @@ export default function Home() {
       </header>
 
       {/* HAKKIMDA */}
-      <section id="about" className="max-w-6xl mx-auto px-4 py-8">
+      <section id="about" className="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
         <h2 className="text-2xl font-semibold mb-3">{t.about_title}</h2>
         <p className={isDark ? "text-slate-300 leading-relaxed" : "text-slate-700 leading-relaxed"}>
           {t.about_text}
@@ -363,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* YETENEKLER */}
-      <section id="skills" className="max-w-6xl mx-auto px-4 py-8">
+      <section id="skills" className="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
         <h2 className="text-2xl font-semibold mb-4">{t.skills_title}</h2>
         <div className="grid gap-3 md:grid-cols-3">
           <div
@@ -406,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* PROJELER */}
-      <section id="projects" className="max-w-6xl mx-auto px-4 py-8">
+      <section id="projects" className="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-semibold">{t.projects_title}</h2>
           <a
@@ -485,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* EĞİTİM & DENEYİM */}
-      <section id="education" className="max-w-6xl mx-auto px-4 py-8 grid gap-6 md:grid-cols-2">
+      <section id="education" className="max-w-6xl mx-auto px-4 py-8 grid gap-6 md:grid-cols-2 scroll-mt-24">
         <div>
           <h2 className="text-2xl font-semibold mb-3">{t.education_title}</h2>
           <ul className={isDark ? "space-y-3 text-slate-200" : "space-y-3 text-slate-700"}>
@@ -510,7 +537,7 @@ export default function Home() {
           <ul className={isDark ? "space-y-4 text-slate-200" : "space-y-4 text-slate-700"}>
             <li>
               <p className="font-semibold">{t.exp1_title}</p>
-              {/* telefon araması gibi tıklanmasın */}
+              {/* telefon araması olarak açmasın */}
               <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp1_date}</p>
               <p className="text-sm">{t.exp1_desc}</p>
             </li>
