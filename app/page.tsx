@@ -537,7 +537,7 @@ export default function Home() {
               <p className="font-semibold">{t.exp1_title}</p>
               {/* telefon araması olarak açmasın */}
               <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp1_date}</p>
-              <p className="text-sm">{t.exp1_desc}</p>
+              {/* açıklama satırı kaldırıldı */}
             </li>
             <li>
               <p className="font-semibold">{t.exp2_title}</p>
