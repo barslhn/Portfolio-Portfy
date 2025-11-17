@@ -11,6 +11,7 @@ const TEXTS = {
     nav_skills: "Yetenekler",
     nav_projects: "Projeler",
     nav_education: "Eğitim",
+    nav_references: "Referanslar",
     location: "İstanbul · Fatih",
     hero_title: "Barış İLHAN",
     hero_role: "Junior Yazılım Geliştirici · Java & Spring Boot",
@@ -23,7 +24,7 @@ const TEXTS = {
     contact_mail: "E-posta",
     contact_phone: "Telefon",
     card_working: "Aktif çalışılan proje:",
-    card_working_desc: "Spring Boot + MySQL | Öğrenci Yönetim Sistemi.",
+    card_working_desc: "Spring Boot + React + TypeScript + Supabase | ERP (Kurumsal Kaynak Planlaması) Sistemi geliştirilmesi.",
     card_cv: "CV indir",
     about_title: "Hakkımda",
     about_text:
@@ -46,6 +47,7 @@ const TEXTS = {
     education_title: "Eğitim",
     experience_title: "Deneyim",
     certificates_title: "Sertifikalar",
+    references_title: "Referanslar",
     edu1: "Bilgisayar Programcılığı – Kapadokya Üniversitesi",
     edu1_year: "2025",
     edu2: "Teknik Kimya Laboratuvarı – Kadırga MTAL",
@@ -70,6 +72,22 @@ const TEXTS = {
     exp3_date: "Kasım 2022 – Ekim 2023",
     exp4_title: "Laboratuvar Teknisyeni – Funda Laboratuvarı",
     exp4_date: "Haziran 2018 – Ekim 2019",
+    references: [ 
+      {
+        name: "Ahmet Murat KIRAN",
+        title: "Bilgi Teknolojileri Operasyon Koordinatörü",
+        company: "Amerikan Hastanesi",
+        phone: "+90 533 522 87 88",
+        email: "ahmetkiran@hotmail.com",
+      },
+      {
+        name: "Orhan TURUN",
+        title: "Bilgi Teknolojileri Teknik Şefi",
+        company: "Küçükçekmece Belediyesi",
+        phone: "+90 532 635 34 45",
+        email: "orhan.turun@kucukcekmece.bel.tr",
+      },
+    ],
     footer: "© " + new Date().getFullYear() + " Barış İlhan",
   },
   en: {
@@ -77,6 +95,7 @@ const TEXTS = {
     nav_skills: "Skills",
     nav_projects: "Projects",
     nav_education: "Education",
+    nav_references: "References",
     location: "Istanbul · Fatih",
     hero_title: "Barış ILHAN",
     hero_role: "Junior Software Developer · Java & Spring Boot",
@@ -89,7 +108,7 @@ const TEXTS = {
     contact_mail: "Send e-mail",
     contact_phone: "Call",
     card_working: "Currently working on:",
-    card_working_desc: "Student Management System with Spring Boot & MySQL.",
+    card_working_desc: "Spring Boot + React + TypeScript + Supabase | Developing an ERP (Enterprise Resource Planning) System.",
     card_cv: "Download CV",
     about_title: "About",
     about_text:
@@ -112,6 +131,7 @@ const TEXTS = {
     education_title: "Education",
     experience_title: "Experience",
     certificates_title: "Certificates",
+    references_title: "References",
     edu1: "Computer Programming – Cappadocia University",
     edu1_year: "2025",
     edu2: "Technical Chemistry Laboratory – Kadırga Vocational and Technical Anatolian High School",
@@ -136,6 +156,22 @@ const TEXTS = {
     exp3_date: "November 2022 – October 2023",
     exp4_title: "Lab Technician – Funda Laboratory",
     exp4_date: "June 2018 – October 2019",
+    references: [ 
+      {
+        name: "Ahmet Murat KIRAN",
+        title: "IT Operations Coordinator",
+        company: "Amerikan Hospital",
+        phone: "+90 533 522 87 88",
+        email: "ahmetkiran@hotmail.com",
+      },
+      {
+        name: "Orhan TURUN",
+        title: "IT Technical Chief",
+        company: "Küçükçekmece Municipality",
+        phone: "+90 532 635 34 45",
+        email: "orhan.turun@kucukcekmece.bel.tr",
+      },
+    ],
     footer: "© " + new Date().getFullYear() + " Barış Ilhan",
   },
 };
@@ -241,6 +277,10 @@ export default function Home() {
             </a>
             <a href="#education" className="hover:text-sky-400">
               {t.nav_education}
+            </a>
+            {/* REFERANSLAR NAV LINKİ EKLENDİ */}
+            <a href="#references" className="hover:text-sky-400"> 
+              {t.nav_references}
             </a>
           </div>
 
@@ -361,7 +401,7 @@ export default function Home() {
           </div>
           <div className="text-center">
             <p className={isDark ? "font-semibold" : "font-semibold text-slate-900"}>Barış İlhan</p>
-            <p className={isDark ? "text-xs text-slate-400" : "text-xs text-slate-500"}>Backend / Spring Boot</p>
+            <p className={isDark ? "text-xs text-slate-400" : "text-xs text-slate-500"}>{t.hero_role}</p>
           </div>
           <div className="w-full">
             <p className="text-sm mb-1 font-semibold">{t.card_working}</p>
@@ -552,6 +592,41 @@ export default function Home() {
               <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp4_date}</p>
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/* REFERANSLAR - YENİ EKLENDİ */}
+      <section id="references" className="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
+        <h2 className="text-2xl font-semibold mb-4">{t.references_title}</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {t.references.map((ref, idx) => (
+            <div
+              key={idx}
+              className={
+                isDark
+                  ? "bg-slate-900/40 border border-slate-800 rounded-lg p-4"
+                  : "bg-white border border-slate-200 rounded-lg p-4"
+              }
+            >
+              <h3 className="font-semibold text-lg mb-1">{ref.name}</h3>
+              <p className={isDark ? "text-sky-400 text-sm mb-1" : "text-sky-700 text-sm mb-1"}>{ref.title}</p>
+              <p className={isDark ? "text-slate-300 text-sm mb-3" : "text-slate-700 text-sm mb-3"}>{ref.company}</p>
+              <div className="flex flex-col gap-1 text-sm">
+                <a
+                  href={`tel:${ref.phone.replace(/\s/g, "")}`}
+                  className={isDark ? "text-slate-400 hover:text-sky-400" : "text-slate-600 hover:text-sky-700"}
+                >
+                  📞 {ref.phone}
+                </a>
+                <a
+                  href={`mailto:${ref.email}`}
+                  className={isDark ? "text-slate-400 hover:text-sky-400" : "text-slate-600 hover:text-sky-700"}
+                >
+                  📧 {ref.email}
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
