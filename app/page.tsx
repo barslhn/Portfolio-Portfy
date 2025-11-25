@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 const GITHUB_USERNAME = "barslhn";
 
-// İndirme ikonu için ufak bir bileşen (SVG)
 const DownloadIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +33,7 @@ const TEXTS = {
     hero_title: "Barış İLHAN",
     hero_role: "Junior Yazılım Geliştirici · Java & Spring Boot",
     hero_desc:
-      "Java, Spring Boot, Python ve SQL ile backend uygulamaları geliştiriyorum. GitHub’daki public projelerimi aşağıda güncel olarak görebilirsiniz.",
+      "Java, Spring Boot, Python ve SQL ile backend uygulamaları geliştiriyorum. GitHub’daki herkese açık projelerimi aşağıda güncel olarak görebilirsiniz.",
     contact_btn: "Bana Ulaş",
     github_btn: "GitHub",
     linkedin_btn: "LinkedIn",
@@ -52,7 +51,7 @@ const TEXTS = {
     skills_backend: "Backend",
     skills_python: "Python",
     skills_tools: "Araçlar",
-    skills_backend_desc: "Java, Spring Boot, REST, MySQL, SQL",
+    skills_backend_desc: "Java, Spring Boot, REST, MySQL, PostgreSQL",
     skills_python_desc: "Python, veri işleme, yüz tanıma",
     skills_tools_desc: "Git, VS Code, Eclipse, Office",
     projects_title: "Projeler",
@@ -71,7 +70,6 @@ const TEXTS = {
     edu1_year: "2025",
     edu2: "Teknik Kimya Laboratuvarı – Kadırga MTAL",
     edu2_year: "2020",
-    // GÜNCELLENDİ: Sertifikalar artık obje listesi
     certificates: [
       { name: "Java 101 – Turkcell Geleceği Yazanlar (2025)", file: "/certificates/java-101-turkcell.pdf" },
       { name: "Java 201 – Turkcell Geleceği Yazanlar (2025)", file: "/certificates/java-201-turkcell.pdf" },
@@ -138,7 +136,7 @@ const TEXTS = {
     skills_backend: "Backend",
     skills_python: "Python",
     skills_tools: "Tools",
-    skills_backend_desc: "Java, Spring Boot, REST, MySQL, SQL",
+    skills_backend_desc: "Java, Spring Boot, REST, MySQL, PostgreSQL",
     skills_python_desc: "Python, data processing, face recognition",
     skills_tools_desc: "Git, VS Code, Eclipse, Office",
     projects_title: "Projects",
@@ -159,7 +157,6 @@ const TEXTS = {
     edu2:
       "Technical Chemistry Laboratory – Kadırga Vocational and Technical Anatolian High School",
     edu2_year: "2020",
-    // UPDATED: Certificates structure with files
     certificates: [
       { name: "Java 101 – Turkcell Geleceği Yazanlar (2025)", file: "/certificates/java-101-turkcell.pdf" },
       { name: "Java 201 – Turkcell Geleceği Yazanlar (2025)", file: "/certificates/java-201-turkcell.pdf" },
@@ -691,7 +688,7 @@ export default function Home() {
           <h3 className="text-xl font-semibold mt-6 mb-3">
             {t.certificates_title}
           </h3>
-          {/* GÜNCELLENEN SERTİFİKA LİSTESİ */}
+          {/* SERTİFİKA LİSTESİ */}
           <ul
             className={
               isDark
