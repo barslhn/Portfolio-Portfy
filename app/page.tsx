@@ -52,6 +52,7 @@ const TEXTS = {
     edu1_year: "2025",
     edu2: "Teknik Kimya Laboratuvarı – Kadırga MTAL",
     edu2_year: "2020",
+    // 👇 SERTİFİKA VERİ YAPISI GÜNCELLENDİ (TR)
     certificates: [
       { name: "API ve API Testi – BTK Akademi", year: "(2025)", file: "/certificates/api-test-btk.pdf" },
       { name: "SQL İle Veritabanı Sorgulama 101 – Turkcell Geleceği Yazanlar", year: "(2025)", file: "/certificates/sql-101-turkcell.pdf" },
@@ -66,6 +67,7 @@ const TEXTS = {
       { name: "NDG Linux Essentials – Cisco Networking Academy", year: "(2023)", file: "/certificates/linux-essentials-cisco.pdf" },
       { name: "NDG Linux Unhatched – Cisco Networking Academy", year: "(2023)", file: "/certificates/linux-unhatched-cisco.pdf" },
     ],
+    // 👆 SERTİFİKA VERİ YAPISI GÜNCELLENDİ (TR)
     exp1_title: "Stajyer – Transay Taşımacılık ve Personel Hizmetleri",
     exp1_date: "Ağustos 2025 – Eylül 2025",
     exp2_title: "Resepsiyon Görevlisi – Sultanahmet Center View",
@@ -138,6 +140,7 @@ const TEXTS = {
     edu1_year: "2025",
     edu2: "Technical Chemistry Laboratory – Kadırga Vocational and Technical Anatolian High School",
     edu2_year: "2020",
+    // 👇 SERTİFİKA VERİ YAPISI GÜNCELLENDİ (EN)
     certificates: [
       { name: "API and API Testing – BTK Academy", year: "(2025)", file: "/certificates/api-test-btk.pdf" },
       { name: "SQL Database Querying 101 – Turkcell Geleceği Yazanlar", year: "(2025)", file: "/certificates/sql-101-turkcell.pdf" },
@@ -152,6 +155,7 @@ const TEXTS = {
       { name: "NDG Linux Essentials – Cisco Networking Academy", year: "(2023)", file: "/certificates/linux-essentials-cisco.pdf" },
       { name: "NDG Linux Unhatched – Cisco Networking Academy", year: "(2023)", file: "/certificates/linux-unhatched-cisco.pdf" },
     ],
+    // 👆 SERTİFİKA VERİ YAPISI GÜNCELLENDİ (EN)
     exp1_title: "Intern – Transay Transport & Personnel Services",
     exp1_date: "August 2025 – September 2025",
     exp2_title: "Receptionist – Sultanahmet Center View",
@@ -568,7 +572,7 @@ export default function Home() {
             </li>
           </ul>
           <h3 className="text-xl font-semibold mt-6 mb-3">{t.certificates_title}</h3>
-          {/* SERTİFİKALAR LİSTESİ */}
+          {/* 👇 SERTİFİKALAR LİSTESİ YENİ RENDER YAPISI (Düzeltildi) */}
           <ul className={isDark ? "space-y-2 text-slate-300 text-sm" : "space-y-2 text-slate-700 text-sm"}>
             {t.certificates.map((cert: any, idx: number) => (
               <li key={idx} className="flex items-center justify-between">
@@ -577,6 +581,7 @@ export default function Home() {
                   <span className="font-medium">{cert.name}</span>
                   <span className="text-slate-500 ml-1">{cert.year}</span>
                 </span>
+                
                 {/* İndirme Butonu */}
                 <a 
                   href={cert.file}
@@ -590,13 +595,16 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          {/* 👆 SERTİFİKALAR LİSTESİ YENİ RENDER YAPISI SONU */}
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-3">{t.experience_title}</h2>
           <ul className={isDark ? "space-y-4 text-slate-200" : "space-y-4 text-slate-700"}>
             <li>
               <p className="font-semibold">{t.exp1_title}</p>
+              {/* telefon araması olarak açmasın */}
               <p className="text-sm text-slate-500 pointer-events-none select-text">{t.exp1_date}</p>
+              {/* açıklama satırı kaldırıldı */}
             </li>
             <li>
               <p className="font-semibold">{t.exp2_title}</p>
@@ -613,8 +621,8 @@ export default function Home() {
           </ul>
         </div>
       </section>
-     
- {/* REFERANSLAR */}
+
+      {/* REFERANSLAR - YENİ EKLENDİ */}
       <section id="references" className="max-w-6xl mx-auto px-4 py-8 scroll-mt-24">
         <h2 className="text-2xl font-semibold mb-4">{t.references_title}</h2>
         <div className="grid gap-6 md:grid-cols-2">
