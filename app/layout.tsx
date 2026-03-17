@@ -1,38 +1,46 @@
-import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const siteUrl = "https://portfolio-portfy-34ud.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Barış İlhan | Junior Software Developer · Java & Spring Boot",
+  title: "Barış İlhan | Software Developer",
   description:
-    "Barış İlhan'ın kişisel portföyü. Java, Spring Boot, Python ve MySQL ile backend geliştirme, projeler, sertifikalar ve iletişim bilgileri.",
+    "Barış İlhan'ın Next.js, NestJS, Spring Boot, TypeScript, PostgreSQL ve Docker odaklı kişisel portföyü; deneyim, sertifikalar, GitHub projeleri ve iletişim bilgileri.",
   keywords: [
     "Barış İlhan",
     "Baris Ilhan",
-    "Junior Yazılım Geliştirici",
-    "Junior Software Developer",
-    "Java",
+    "Software Developer",
+    "Full Stack Developer",
+    "Next.js",
+    "NestJS",
     "Spring Boot",
-    "Python",
-    "MySQL",
-    "Backend",
-    "Bilgisayar Programcılığı",
-    "Kapadokya Üniversitesi",
+    "TypeScript",
+    "PostgreSQL",
+    "Docker",
+    "Portfolio",
   ],
   authors: [{ name: "Barış İlhan", url: siteUrl }],
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: siteUrl,
-    languages: {
-      "tr-TR": siteUrl + "/",
-      "en-US": siteUrl + "/?lang=en",
-    },
+  },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
   },
   openGraph: {
-    title: "Barış İlhan | Yazılım Geliştirici",
+    title: "Barış İlhan | Portfolio",
     description:
-      "Java & Spring Boot ile geliştirilen projeler, GitHub bağlantıları ve iletişim bilgileri.",
+      "Backend ve full-stack geliştirme odağındaki deneyimler, sertifikalar, GitHub projeleri ve iletişim bilgileri.",
     url: siteUrl,
     siteName: "Barış İlhan Portfolio",
     locale: "tr_TR",
@@ -48,33 +56,49 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Barış İlhan | Junior Software Developer",
-    description:
-      "Java, Spring Boot, Python ve SQL ile backend geliştiren yazılımcı.",
+    title: "Barış İlhan | Software Developer",
+    description: "Dark premium personal portfolio built with Next.js.",
     images: ["/baris.jpg"],
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0a1120" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f6fc" },
+  ],
+};
+
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="tr">
+    <html lang="tr" suppressHydrationWarning>
       <head>
-        {/* iPhone, Android ve tüm mobil tarayıcılarda telefon numarası algılamayı devre dışı bırak */}
-        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
-        {/* Tarayıcıların otomatik bağlantı veya stil eklemesini engelle */}
-        <meta name="x-apple-disable-message-reformatting" content="true" />
-        {/* Mobil uyumluluk */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        {/* Android Chrome özel: otomatik bağlantı renkleri kapalı */}
-        <meta name="theme-color" content="#0f172a" />
-        {/* Ek güvenlik / erişim ayarları */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              try {
+                const savedTheme = localStorage.getItem('theme');
+                const theme =
+                  savedTheme === 'light' || savedTheme === 'dark'
+                    ? savedTheme
+                    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.dataset.theme = theme;
+              } catch {
+                document.documentElement.dataset.theme = 'light';
+              }
+            })();`,
+          }}
+        />
       </head>
-      <body>{children}</body>
+      <body className={inter.variable}>
+        {children}
+      </body>
     </html>
   );
 }
