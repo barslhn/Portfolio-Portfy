@@ -243,7 +243,7 @@ export const EDUCATION: EducationItem[] = [
 export const EXPERIENCES: ExperienceItem[] = [
   {
     period: "11/2025 - 04/2026",
-    role: { tr: "Stajyer • Full Stack Developer", en: "Intern • Full Stack Developer" },
+    role: { tr: "Full Stack Developer", en: "Full Stack Developer" },
     company: { tr: "Neon Apps Academy", en: "Neon Apps Academy" },
     bullets: {
       tr: [
