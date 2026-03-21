@@ -361,7 +361,7 @@ export const CERTIFICATES: CertificateItem[] = [
 export const REFERENCES: ReferenceItem[] = [
   {
     name: "Ahmet Murat KIRAN",
-    title: { tr: "Ünvan: Bilgi Teknolojileri Operasyon Koordinatörü", en: "Title:Information Technologies Operations Coordinator" },
+    title: { tr: "Ünvan: Bilgi Teknolojileri Operasyon Koordinatörü", en: "Title: Information Technologies Operations Coordinator" },
     company: { tr: "Şirket: Amerikan Hastanesi", en: "Company: Amerikan Hospital" },
     phone: "+90 533 522 87 88",
     email: "ahmetkiran@hotmail.com",
