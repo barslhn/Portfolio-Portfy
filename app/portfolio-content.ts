@@ -361,15 +361,15 @@ export const CERTIFICATES: CertificateItem[] = [
 export const REFERENCES: ReferenceItem[] = [
   {
     name: "Ahmet Murat KIRAN",
-    title: { tr: "Bilgi Teknolojileri Operasyon Koordinatörü", en: "Information Technologies Operations Coordinator" },
-    company: { tr: "Amerikan Hastanesi", en: "Amerikan Hospital" },
+    title: { tr: "Ünvan: Bilgi Teknolojileri Operasyon Koordinatörü", en: "Title:Information Technologies Operations Coordinator" },
+    company: { tr: "Şirket: Amerikan Hastanesi", en: "Company: Amerikan Hospital" },
     phone: "+90 533 522 87 88",
     email: "ahmetkiran@hotmail.com",
   },
   {
     name: "Orhan TURUN",
-    title: { tr: "Bilgi Teknolojileri Teknik Şefi", en: "Information Technologies Technical Chief" },
-    company: { tr: "Küçükçekmece Belediyesi", en: "Küçükçekmece Municipality" },
+    title: { tr: "Ünvan: Bilgi Teknolojileri Teknik Şefi", en: "Title: Information Technologies Technical Chief" },
+    company: { tr: "Şirket: Küçükçekmece Belediyesi", en: "Company: Küçükçekmece Municipality" },
     phone: "+90 532 635 34 45",
     email: "orhan.turun@kucukcekmece.bel.tr",
   },
