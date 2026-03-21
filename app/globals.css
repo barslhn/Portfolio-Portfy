@@ -850,51 +850,21 @@ img {
 
 .reference-list {
   display: grid;
-  gap: 0.95rem;
+  gap: 1rem;
 }
 
-.reference-item {
-  display: grid;
-  gap: 0.5rem;
-  padding-bottom: 0.95rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.reference-item:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-.reference-item__name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.reference-item__meta {
+.reference-card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 0.8rem;
-  font-size: 0.92rem;
-  color: var(--muted);
-}
-
-.reference-item__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.reference-item__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.75rem;
+  padding-top: 0.15rem;
+  border-top: 1px solid var(--line);
 }
 
 .reference-action {
-  padding-inline: 0.92rem;
+  flex: 1 1 10rem;
+  justify-content: center;
+  padding-inline: 1rem;
 }
 
 .contact-action-button {
@@ -928,6 +898,10 @@ img {
 
 @media (min-width: 768px) {
   .action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reference-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

@@ -333,7 +333,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: { tr: "Veri Katmanı", en: "Data Layer" },
     description: { tr: "Doğruluk ve performans odağı", en: "Correctness and performance" },
-    items: ["PostgreSQL", "MySQL", "Redis", "Drizzle ORM", "Veri Yapıları", "Algoritmalar"],
+    items: ["PostgreSQL", "MySQL", "Redis", "Drizzle ORM", "Data Structures", "Algorithms"],
   },
   {
     title: { tr: "DevOps ve Araçlar", en: "DevOps and Tools" },

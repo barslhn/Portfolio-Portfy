@@ -40,11 +40,7 @@ import {
   cn,
 } from "./portfolio-ui";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") {
-    return "dark";
-  }
-
+function getStoredThemePreference(): Theme {
   const datasetTheme = document.documentElement.dataset.theme;
 
   if (datasetTheme === "light" || datasetTheme === "dark") {
@@ -60,12 +56,26 @@ function getInitialTheme(): Theme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-function getInitialLocale(): Locale {
-  if (typeof window === "undefined") {
-    return "tr";
+function getStoredLocalePreference(): Locale {
+  return window.localStorage.getItem("lang") === "en" ? "en" : "tr";
+}
+
+function getLocalizedSkillItems(items: string[], lang: Locale) {
+  if (lang !== "en") {
+    return items;
   }
 
-  return window.localStorage.getItem("lang") === "en" ? "en" : "tr";
+  return items.map((item) => {
+    if (item === "Veri Yapıları") {
+      return "Data Structures";
+    }
+
+    if (item === "Algoritmalar") {
+      return "Algorithms";
+    }
+
+    return item;
+  });
 }
 
 async function fetchRepos(signal: AbortSignal) {
@@ -109,8 +119,8 @@ function shouldShowLiveDemo(repo: Repo) {
 }
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
-  const [lang, setLang] = useState<Locale>(() => getInitialLocale());
+  const [theme, setTheme] = useState<Theme>("dark");
+  const [lang, setLang] = useState<Locale>("tr");
   const [repos, setRepos] = useState<Repo[]>([]);
   const [repoStatus, setRepoStatus] = useState<"loading" | "ready" | "error">("loading");
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -128,6 +138,13 @@ export default function Home() {
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
+      const nextTheme = getStoredThemePreference();
+      const nextLang = getStoredLocalePreference();
+
+      setTheme(nextTheme);
+      setLang(nextLang);
+      document.documentElement.dataset.theme = nextTheme;
+      document.documentElement.lang = nextLang;
       setThemeReady(true);
     }, 0);
 
@@ -135,14 +152,22 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (!themeReady) {
+      return;
+    }
+
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [theme, themeReady]);
 
   useEffect(() => {
+    if (!themeReady) {
+      return;
+    }
+
     document.documentElement.lang = lang;
     window.localStorage.setItem("lang", lang);
-  }, [lang]);
+  }, [lang, themeReady]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -522,7 +547,7 @@ export default function Home() {
           {SKILL_GROUPS.map((group) => (
             <article key={group.title.tr} className="skill-group">
               <h3 className="skill-group__title">{pick(group.title, lang)}</h3>
-              <p className="skill-group__items">{group.items.join(" · ")}</p>
+              <p className="skill-group__items">{getLocalizedSkillItems(group.items, lang).join(" · ")}</p>
             </article>
           ))}
         </div>
@@ -635,13 +660,14 @@ export default function Home() {
         <Eyebrow>{t.referencesTitle}</Eyebrow>
         <div className="reference-list">
           {REFERENCES.map((reference) => (
-            <div key={reference.email} className="reference-item">
-              <p className="reference-item__name">{reference.name}</p>
-              <div className="reference-item__meta">
-                <span>{pick(reference.title, lang)}</span>
-                <span>{pick(reference.company, lang)}</span>
-              </div>
-              <div className="reference-item__actions">
+            <Card key={reference.email} className="h-full">
+              <CardHeader
+                title={reference.name}
+                subtitle={pick(reference.title, lang)}
+                titleClassName="text-lg"
+              />
+              <p className="card-copy">{pick(reference.company, lang)}</p>
+              <div className="reference-card__actions">
                 <SecondaryButton
                   href={`tel:${reference.phone.replace(/\s+/g, "")}`}
                   icon={<PhoneIcon />}
@@ -657,7 +683,7 @@ export default function Home() {
                   {lang === "tr" ? "E-posta" : "E-mail"}
                 </SecondaryButton>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </SectionShell>
