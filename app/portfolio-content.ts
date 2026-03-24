@@ -229,7 +229,7 @@ export const HERO_SIGNAL_CARDS = [
 
 export const EDUCATION: EducationItem[] = [
   {
-    date: "10/2025",
+    date: "11/2025",
     title: { tr: "Bilgisayar Programcılığı", en: "Computer Programming" },
     school: { tr: "Kapadokya Üniversitesi", en: "Cappadocia University" },
   },
@@ -359,6 +359,20 @@ export const CERTIFICATES: CertificateItem[] = [
 ];
 
 export const REFERENCES: ReferenceItem[] = [
+  {
+    name: "Bilal BARUT",
+    title: { tr: "Ünvan: Full Stack Developer Takım Lideri", en: "Title: Full Stack Developer Team Lead" },
+    company: { tr: "Şirket: Neon Apps", en: "Company: Neon Apps" },
+    phone: "+90 541 421 53 17",
+    email: "bilalbarut17@gmail.com",
+  },
+ {
+    name: "Yeliz KARASAKAL",
+    title: { tr: "Ünvan: İnsan Kaynakları ve İdari İşler Uzmanı", en: "Title: Human Resources & Administrative Affairs Specialist" },
+    company: { tr: "Şirket: Neon Apps", en: "Company: Neon Apps" },
+    phone: "+90 552 226 14 28",
+    email: "yelizzkarasakall@gmail.com",
+  },
   {
     name: "Ahmet Murat KIRAN",
     title: { tr: "Ünvan: Bilgi Teknolojileri Operasyon Koordinatörü", en: "Title: Information Technologies Operations Coordinator" },
